@@ -1,6 +1,6 @@
 Name:           libmatekbd
-Version:	1.11.0
-Release:        3%{?dist}
+Version:	1.12.1
+Release:        4%{?dist}
 Summary:        Libraries for mate kbd
 Summary(zh_CN.UTF-8): mate kbd 的库
 License:        LGPLv2+
@@ -85,8 +85,13 @@ fi
 %{_libdir}/pkgconfig/libmatekbdui.pc
 %{_libdir}/libmatekbdui.so
 %{_libdir}/libmatekbd.so
+%{_libdir}/girepository-1.0/Matekbd-1.0.typelib
+%{_datadir}/gir-1.0/Matekbd-1.0.gir
 
 %changelog
+* Wed Feb 03 2016 Liu Di <liudidi@gmail.com> - 1.12.1-4
+- 为 Magic 3.0 重建
+
 * Sat Oct 31 2015 Liu Di <liudidi@gmail.com> - 1.11.0-3
 - 更新到 1.11.0
 

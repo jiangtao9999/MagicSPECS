@@ -15,8 +15,8 @@
 
 
 Name:           linphone
-Version:	3.8.5
-Release:        9%{?dist}
+Version:	3.9.1
+Release:        10%{?dist}
 Summary:        Phone anywhere in the whole world by using the Internet
 
 License:        GPLv2+
@@ -237,8 +237,8 @@ install pixmaps/%{name}.png $RPM_BUILD_ROOT%{_datadir}/pixmaps/
 # some tests
 %{__rm} $RPM_BUILD_ROOT%{_bindir}/*_test
 
-install -d $RPM_BUILD_ROOT%{_examplesdir}
-mv $RPM_BUILD_ROOT%{_datadir}/tutorials/%{name} $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+#install -d $RPM_BUILD_ROOT%{_examplesdir}
+#mv $RPM_BUILD_ROOT%{_datadir}/tutorials/%{name} $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 magic_rpm_clean.sh
 %find_lang %{name} --with-gnome --all-name
 
@@ -272,7 +272,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/appdata/linphone.appdata.xml
 %{_datadir}/applications/audio-assistant.desktop
 %{_bindir}/lp-autoanswer
-%{_datadir}/icons/hicolor/48x48/apps/linphone.png
+%{_datadir}/icons/hicolor/*/*/*
 
 %files -n linphonec
 %defattr(644,root,root,755)
@@ -285,7 +285,7 @@ rm -rf $RPM_BUILD_ROOT
 %files libs
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/liblinphone.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/liblinphone.so.7
+%attr(755,root,root) %ghost %{_libdir}/liblinphone.so.8
 %if %{without system_mediastreamer} || %{without system_ortp}
 %dir %{_libdir}/%{name}
 %endif
@@ -328,7 +328,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/%{name}/include/ortp
 %{_libdir}/%{name}/pkgconfig/ortp.pc
 %endif
-#%{_datadir}/exmaples/%{name}-%{version}
+%{_datadir}/tutorials/%{name}
 
 %files static
 %defattr(644,root,root,755)
@@ -342,6 +342,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Wed Feb 03 2016 Liu Di <liudidi@gmail.com> - 3.9.1-10
+- 为 Magic 3.0 重建
+
 * Tue Nov 10 2015 Liu Di <liudidi@gmail.com> - 3.8.5-9
 - 为 Magic 3.0 重建
 
